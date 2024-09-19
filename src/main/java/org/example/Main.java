@@ -8,18 +8,18 @@ import java.util.UUID;
 public class Main {
     public static void main(String[] args) {
 
-        List<DocumentManager.Author> authors = new ArrayList<>();
+        List<Test_task.Author> authors = new ArrayList<>();
         for (int i = 0; i < 4; i++){
-            authors.add(DocumentManager.Author.builder().id(String.valueOf(i)).name("author "+i).build());
+            authors.add(Test_task.Author.builder().id(String.valueOf(i)).name("author "+i).build());
         }
 
         List<String> titles = List.of("title1","title2","title3");
 
-        DocumentManager manager = new DocumentManager();
+        Test_task manager = new Test_task();
 
         String idToFind = "";
         for(int i = 0; i < 10; i++){
-            DocumentManager.Document document = new DocumentManager.Document(null,titles.get(i % titles.size()),
+            Test_task.Document document = new Test_task.Document(null,titles.get(i % titles.size()),
                     "content " + i%2 ,authors.get(i % titles.size()), Instant.now());
             manager.save(document);
             System.out.println(document);
@@ -29,7 +29,7 @@ public class Main {
             }
         }
         System.out.println("\nFound by id \n" + manager.findById(idToFind).get());
-        manager.search(DocumentManager.
+        manager.search(Test_task.
                         SearchRequest.builder().authorIds(List.of("author 1", "author 3"))
                         .containsContents(List.of("content 0", "content 1"))
                         .build())

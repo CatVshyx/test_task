@@ -16,7 +16,7 @@ import java.util.stream.Stream;
  * Implementations should be in a single class
  * This class could be auto tested
  */
-public class DocumentManager {
+public class Test_task {
     private HashMap<String,Document> storage = new HashMap<>();
     /**
      * Implementation of this method should upsert the document to your storage
